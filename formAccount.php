@@ -1,122 +1,147 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Account Bank</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
 
-    <style>
-        .form-icon {
-            text-align: center;
-            background-color: #5891ff;
-            border-radius: 50%;
-            font-size: 50px;
-            color: white;
-            width: 100px;
-            height: 100px;
-            margin: auto;
-            margin-bottom: 20px;
-            margin-left: 100px;
-            line-height: 100px;
-        }
+<style>
+    .form-group {
+  margin-bottom: 15px;
+}
 
-        body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            background-image: url('path-to-your-background-image.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            font-family: 'Arial', sans-serif;
-            color: #495057;
-        }
+.input-group {
+  width: 100%;
+}
 
-        form {
-            width: 35%;
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 50px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+.input-group-prepend, .input-group-append {
+  cursor: pointer;
+}
 
-        h1 {
-            font-size: 2em;
-            color: #007bff;
-            margin-bottom: 20px;
-        }
+/* Style for table */
+.table {
+  width: 100%;
+  margin-bottom: 1rem;
+  color: #212529;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
 
-        label {
-            font-weight: bold;
-        }
+.table th,
+.table td {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+}
 
-        input.form-control {
-            border-radius: 5px;
-            margin-bottom: 10px;
-        }
+.table thead th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #dee2e6;
+}
 
-        button.btn-primary {
-            border-radius: 5px;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <div class="form-icon">
-            <span><i class="icon icon-user"></i></span>
-        </div>
-    </header>
+.table tbody+tbody {
+  border-top: 2px solid #dee2e6;
+}
 
-    <form action="p_form.php">
-        <div class="form-group row">
-            <label for="text" class="col-4 col-form-label">Nomor Rekening</label> 
-            <div class="col-8">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text">
-                            <i class="fa fa-credit-card-alt"></i>
-                        </div>
-                    </div> 
-                    <input id="text" name="text" type="text" class="form-control">
-                </div>
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="text1" class="col-4 col-form-label">Nama Customer</label> 
-            <div class="col-8">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text">
-                            <i class="fa fa-address-book"></i>
-                        </div>
-                    </div> 
-                    <input id="text1" name="text1" type="text" class="form-control">
-                </div>
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="text2" class="col-4 col-form-label">Saldo Awal</label> 
-            <div class="col-8">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text">
-                            <i class="fa fa-money"></i>
-                        </div>
-                    </div> 
-                    <input id="text2" name="text2" type="text" class="form-control">
-                </div>
-            </div>
+/* Style for buttons */
+.btn-primary {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+/* Responsive styles for small screens */
+@media (max-width: 576px) {
+  .col-2, .col-4, .col-8, .offset-2 {
+    width: 100%;
+  }
+}
+</style>
+
+<h1 class="text-center">Form Account Bank</h1>
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+  <div class="form-group row">
+    <label for="text" class="col-2 col-form-label">No. Rekening</label> 
+    <div class="col-8">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <i class="fa fa-address-card"></i>
+          </div>
         </div> 
-        <div class="form-group row">
-            <div class="offset-4 col-8">
-                <button name="submit" type="submit" class="btn btn-primary">Submit</button>
-            </div>
-        </div>
-    </form>
-</body>
-</html>
+        <input id="text" name="text" type="text" class="form-control">
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="text1" class="col-2 col-form-label">Nama Customer</label> 
+    <div class="col-8">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <i class="fa fa-address-book"></i>
+          </div>
+        </div> 
+        <input id="text1" name="text1" type="text" class="form-control">
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="text2" class="col-2 col-form-label">Saldo Awal</label> 
+    <div class="col-8">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <i class="fa fa-money"></i>
+          </div>
+        </div> 
+        <input id="text2" name="text2" type="text" class="form-control">
+      </div>
+    </div>
+  </div> 
+  <div class="form-group row">
+    <div class="offset-2 col-4">
+      <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+</form>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Proses data formulir dan simpan dalam array
+    $noRekening = $_POST["text"];
+    $namaCustomer = $_POST["text1"];
+    $saldoAwal = $_POST["text2"];
+?>
+<table class="table">
+    <tr>
+        <td scope="col">No</td>
+        <td>No.Rekening</td>
+        <td>Customer</td>
+        <td>Saldo</td>
+    </tr>
+    <tr>
+      <th scope="row">1</th>
+      <td>010</td>
+      <td>Messi</td>
+      <td>6250000</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>070</td>
+      <td>Ronaldo</td>
+      <td>8743500</td>
+    </tr>
+    <tr>
+    <td scope="row">3</td>
+        <td><?php echo $noRekening; ?></td>
+        <td><?php echo $namaCustomer; ?></td>
+        <td><?php echo $saldoAwal; ?></td>
+    </tr>
+</table>
+<?php
+}
+?>
